@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💊 Opioids, NSAIDs & Anaesthetics — Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0c10;
+  --surface:#111318;
+  --surface2:#181c24;
+  --border:rgba(249,168,37,0.12);
+  --border-bright:rgba(249,168,37,0.38);
+  --gold:#f9a825;
+  --gold-dim:rgba(249,168,37,0.08);
+  --gold-glow:rgba(249,168,37,0.18);
+  --rose:#e57373;
+  --teal:#4dd0e1;
+  --success:#81c784;
+  --success-dim:rgba(129,199,132,0.1);
+  --text:#f0e9da;
+  --text-muted:#8d8070;
+  --text-dim:#4a4540;
+  --r:10px;--r-lg:16px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',sans-serif;font-size:15px;line-height:1.72;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(ellipse at 20% 50%,rgba(249,168,37,0.04) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(77,208,225,0.03) 0%,transparent 50%);pointer-events:none;z-index:0}
+
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(10,12,16,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:11px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.logo{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--gold);white-space:nowrap;text-shadow:0 0 24px var(--gold-glow);flex-shrink:0}
+.logo span{color:var(--text-muted);font-size:.9rem;font-family:'Source Sans 3',sans-serif;font-weight:400}
+.search-wrap{flex:1;min-width:170px;max-width:360px;position:relative}
+.search-wrap input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:7px 12px 7px 34px;color:var(--text);font-family:'Source Sans 3',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+.search-wrap input:focus{border-color:var(--border-bright)}
+.search-wrap input::placeholder{color:var(--text-dim)}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--text-muted);pointer-events:none}
+.progress-wrap{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted);white-space:nowrap;flex-shrink:0}
+.prog-bar{width:90px;height:5px;background:var(--surface2);border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:3px;transition:width .4s}
+.prog-label{font-family:'Source Code Pro',monospace;color:var(--gold);font-size:12px;font-weight:500}
+.filter-btns{display:flex;gap:5px;flex-wrap:wrap}
+.filter-btn{padding:5px 11px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--text-muted);font-family:'Source Sans 3',sans-serif;font-size:12px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.filter-btn.active{background:var(--gold-dim);border-color:var(--gold);color:var(--gold)}
+.filter-btn:hover{border-color:var(--border-bright);color:var(--text)}
+
+/* LAYOUT */
+.container{max-width:860px;margin:0 auto;padding:22px 15px 80px;position:relative;z-index:1}
+
+/* STATS */
+.stats-bar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:18px}
+.stat-card{flex:1;min-width:90px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--gold);line-height:1}
+.stat-label{font-size:11px;color:var(--text-muted);margin-top:2px}
+
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px;margin-bottom:18px}
+.toc-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--gold);margin-bottom:11px;display:flex;align-items:center;gap:7px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:5px}
+.toc-item{display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:8px;border:1px solid var(--border);color:var(--text-muted);font-size:12.5px;text-decoration:none;transition:all .2s;cursor:pointer}
+.toc-item:hover{border-color:var(--border-bright);color:var(--text);background:var(--gold-dim)}
+.toc-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* TOOLBAR */
+.toolbar{display:flex;gap:7px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.toolbar-btn{padding:6px 13px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text-muted);font-family:'Source Sans 3',sans-serif;font-size:13px;cursor:pointer;transition:all .2s}
+.toolbar-btn:hover{border-color:var(--border-bright);color:var(--text);background:var(--gold-dim)}
+
+/* SECTION BLOCK */
+.section-block{margin-bottom:10px;border-radius:var(--r-lg);border:1px solid var(--border);background:var(--surface);overflow:hidden;transition:box-shadow .3s}
+.section-block:hover{box-shadow:0 0 0 1px var(--border-bright),0 6px 24px rgba(0,0,0,.4)}
+.section-block.hidden{display:none}
+.section-header{padding:14px 18px;display:flex;align-items:center;gap:11px;cursor:pointer;user-select:none;border-bottom:1px solid transparent;transition:background .2s,border-color .2s}
+.section-block.open .section-header{border-bottom-color:var(--border);background:rgba(249,168,37,0.04)}
+.section-header:hover{background:var(--gold-dim)}
+.sec-icon{width:32px;height:32px;border-radius:8px;background:var(--gold-dim);border:1px solid var(--border-bright);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.sec-title-wrap{flex:1}
+.sec-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--text);line-height:1.3}
+.sec-badge{font-size:11px;font-family:'Source Code Pro',monospace;color:var(--text-muted);margin-top:1px}
+.sec-chevron{font-size:11px;color:var(--text-dim);transition:transform .3s;flex-shrink:0}
+.section-block.open .sec-chevron{transform:rotate(180deg)}
+.sec-progress{font-size:11px;font-family:'Source Code Pro',monospace;color:var(--text-dim);background:var(--surface2);padding:2px 8px;border-radius:10px;border:1px solid var(--border);flex-shrink:0}
+
+/* BODY */
+.section-body{display:none;padding:0}
+.section-block.open .section-body{display:block}
+
+/* CONTENT */
+.content-panel{padding:18px 20px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.012)}
+.content-panel h3{font-family:'Playfair Display',serif;font-size:1.02rem;font-weight:700;color:var(--teal);margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.content-panel h3::before{content:'';display:inline-block;width:3px;height:15px;border-radius:2px;background:var(--teal);flex-shrink:0}
+.content-panel p{color:rgba(240,233,218,0.8);margin-bottom:7px;font-size:14px;line-height:1.75}
+.content-panel ul,.content-panel ol{padding-left:18px;margin-bottom:7px}
+.content-panel li{color:rgba(240,233,218,0.8);font-size:14px;margin-bottom:3px;line-height:1.7}
+.content-panel strong{color:var(--gold);font-weight:600}
+.content-panel em{color:var(--rose);font-style:normal;font-weight:500}
+.drug-tag{display:inline-block;background:rgba(77,208,225,0.09);border:1px solid rgba(77,208,225,0.22);color:var(--teal);border-radius:4px;padding:1px 7px;font-size:12px;font-family:'Source Code Pro',monospace;margin:1px 2px}
+
+/* Q&A */
+.qa-panel{padding:14px 18px 18px}
+.qa-header{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:11px;display:flex;align-items:center;gap:7px}
+.qa-header::before{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+.qa-header span{background:var(--surface2);padding:3px 9px;border-radius:20px;border:1px solid var(--border)}
+
+.q-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);margin-bottom:8px;overflow:hidden;transition:border-color .2s}
+.q-card:hover{border-color:var(--border-bright)}
+.q-head{padding:11px 14px;cursor:pointer;display:flex;align-items:flex-start;gap:9px}
+.q-num{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--text-dim);flex-shrink:0;padding-top:2px;min-width:22px}
+.q-type-badge{font-size:10px;font-family:'Source Code Pro',monospace;padding:2px 6px;border-radius:4px;flex-shrink:0;margin-top:2px}
+.badge-mcq{background:rgba(77,208,225,0.09);border:1px solid rgba(77,208,225,0.28);color:var(--teal)}
+.badge-tf{background:rgba(249,168,37,0.09);border:1px solid rgba(249,168,37,0.28);color:var(--gold)}
+.q-text{font-size:13.5px;color:var(--text);line-height:1.55;flex:1}
+.q-toggle{font-size:11px;color:var(--text-dim);flex-shrink:0;transition:transform .25s;padding-top:3px}
+.q-card.open .q-toggle{transform:rotate(180deg)}
+.q-body{display:none;padding:0 14px 12px;padding-top:2px}
+.q-card.open .q-body{display:block}
+.q-options{list-style:none;margin-bottom:8px}
+.q-options li{padding:5px 9px;margin-bottom:3px;border-radius:6px;font-size:13px;display:flex;align-items:flex-start;gap:7px;color:rgba(240,233,218,0.72);border:1px solid transparent}
+.q-options li.correct-opt{background:var(--success-dim);border-color:rgba(129,199,132,0.32);color:var(--success);font-weight:500}
+.opt-letter{font-family:'Source Code Pro',monospace;font-size:11px;flex-shrink:0;padding-top:1px;width:17px}
+.correct-opt .opt-letter{color:var(--success)}
+.q-answer-line{font-size:12px;color:var(--text-muted);font-family:'Source Code Pro',monospace;padding-top:4px;border-top:1px solid var(--border)}
+.q-answer-line strong{color:var(--success)}
+
+.show-answers-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:3px 9px;font-size:12px;color:var(--text-muted);font-family:'Source Sans 3',sans-serif;cursor:pointer;float:right;margin-top:-2px;transition:all .2s}
+.show-answers-btn:hover{border-color:var(--gold);color:var(--gold)}
+.show-answers-btn.revealed{border-color:var(--gold);color:var(--gold);background:var(--gold-dim)}
+
+.empty{text-align:center;padding:40px 20px;color:var(--text-muted);display:none}
+.empty.show{display:block}
+
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border-bright);border-radius:3px}
+
+@media(max-width:600px){.site-header{gap:7px}.progress-wrap{display:none}.stat-num{font-size:1.5rem}.toc-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">💊 Opioids &amp; Analgesics<span> Study Guide</span></div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search content or questions…">
+  </div>
+  <div class="filter-btns">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="content">Content Only</button>
+    <button class="filter-btn" data-filter="mcq">MCQ Only</button>
+    <button class="filter-btn" data-filter="tf">T/F Only</button>
+  </div>
+  <div class="progress-wrap">
+    <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+    <span class="prog-label" id="progLabel">0%</span>
+  </div>
+</header>
+
+<main class="container" id="mainContainer">
+  <div class="stats-bar">
+    <div class="stat-card"><div class="stat-num">10</div><div class="stat-label">Topics</div></div>
+    <div class="stat-card"><div class="stat-num" id="totalQ">—</div><div class="stat-label">Questions</div></div>
+    <div class="stat-card"><div class="stat-num" id="openedCount">0</div><div class="stat-label">Read</div></div>
+    <div class="stat-card"><div class="stat-num" id="revealedCount">0</div><div class="stat-label">Checked</div></div>
+  </div>
+  <div class="toc"><div class="toc-title">📋 Contents</div><div class="toc-grid" id="tocGrid"></div></div>
+  <div class="toolbar">
+    <button class="toolbar-btn" onclick="expandAll()">⊞ Expand All</button>
+    <button class="toolbar-btn" onclick="collapseAll()">⊟ Collapse All</button>
+    <button class="toolbar-btn" onclick="revealAllAnswers()">✓ Show All Answers</button>
+    <button class="toolbar-btn" onclick="resetProgress()">↺ Reset</button>
+  </div>
+  <div id="contentArea"></div>
+  <div class="empty" id="emptyState">No results found.</div>
+</main>
+
+<script>
+// ═══════════════════ CONTENT DATA ═══════════════════
+const SECTIONS = [
+{
+  id:'intro_opioid',icon:'🌿',title:'Introduction to Opioids',badge:'Classification · Receptors · Mechanism',
+  content:`
+<h3>What Are Opioids?</h3>
+<p>Opioids are <strong>natural or synthetic compounds</strong> that produce morphine-like effects and are blocked by antagonists such as <span class="drug-tag">naloxone</span>. The natural opioids are obtained from opium puppy (<em>Papaver somniferum</em>). <strong>Morphine</strong> is the prototype of this group.</p>
+
+<h3>Classification by Action</h3>
+<ul>
+  <li><strong>Full agonists</strong></li>
+  <li><strong>Partial agonists</strong> — can cause agonist effect but may also displace full agonists from their binding sites and reduce their effects</li>
+  <li><strong>Antagonists</strong></li>
+</ul>
+
+<h3>Chemical Classification</h3>
+<p><strong>A. Morphine analogues</strong> — closely related to morphine, often synthesized from it: <span class="drug-tag">Codeine</span> <span class="drug-tag">Heroine</span> <span class="drug-tag">Nalorphine</span> <span class="drug-tag">Naloxone</span></p>
+<p><strong>B. Synthetic derivatives unrelated to morphine:</strong></p>
+<ul>
+  <li>Phenylpiperidine series: <span class="drug-tag">Pethidine</span> <span class="drug-tag">Fentanyl</span></li>
+  <li>Methadone series: <span class="drug-tag">Methadone</span> <span class="drug-tag">Dextropropoxyphene</span></li>
+  <li>Benzmorphan series: <span class="drug-tag">Pentazocine</span> <span class="drug-tag">Cyclazocine</span></li>
+  <li>Thebaine derivatives: <span class="drug-tag">Etorphine</span> <span class="drug-tag">Buprenorphine</span></li>
+</ul>
+
+<h3>Mechanism of Action</h3>
+<p>Opioids exert their actions by interacting with <strong>opioid receptors in the CNS and GIT</strong>. They cause <strong>hyperpolarization of nerve cells</strong> and inhibition of transmitter release. Morphine acts at K (kappa) receptors in the spinal cord and <strong>decreases the release of substance P</strong> (which modulates pain perception). Morphine also inhibits many excitatory transmitters from nerve terminals carrying painful stimuli.</p>
+
+<h3>Opioid Receptors</h3>
+<ul>
+  <li><strong>μ (mu) receptors</strong> — responsible for <em>most analgesic effects</em>; also responsible for respiratory depression, euphoria, sedation and dependence</li>
+  <li><strong>δ (delta) receptors</strong> — more important in the periphery; responsible for <em>some analgesic effect</em></li>
+  <li><strong>K (kappa) receptors</strong> — responsible for <em>analgesia at the spinal level</em></li>
+  <li><strong>σ (sigma) receptors</strong> — responsible for <em>dysphoria and hallucination</em> produced by some opioids</li>
+</ul>
+`
+},
+{
+  id:'pharmacology_opioid',icon:'🧠',title:'Pharmacological Actions of Morphine',badge:'CNS · GIT · CVS · Histamine',
+  content:`
+<h3>A) CNS Actions</h3>
+<ul>
+  <li><strong>Analgesia</strong> — opioids reduce sensory and affective (emotional) components of pain; greater effect on the affective components</li>
+  <li><strong>Euphoria</strong> — morphine produces a powerful sense of contentment, well-being, and freedom from anxiety and distress</li>
+  <li><strong>Sedation</strong> — drowsiness is frequent with opiates; little or no amnesia. Sleep induced more frequently in elderly than in young healthy individuals</li>
+  <li><strong>Respiratory depression</strong> — opioids inhibit respiratory mechanisms in the CNS; <em>respiratory depression is the common cause of death in acute opioid overdose</em></li>
+  <li><strong>Depression of cough reflex</strong> — morphine and codeine have antitussive properties; tolerance develops to the cough suppressant action</li>
+  <li><strong>Nausea and vomiting</strong> — act on the <strong>chemoreceptor trigger zone</strong> to produce nausea and vomiting in about 40% of patients</li>
+  <li><strong>Miosis (pin point pupil)</strong> — centrally mediated by μ- and K-receptor stimulation of Edinger-Westphal nucleus. Blocked by opioid antagonists and by <strong>atropine</strong>. <em>Important for diagnosis of opioid overdose</em> because most other causes of coma produce pupillary dilatation</li>
+</ul>
+
+<h3>B) Effect on GIT</h3>
+<p>Morphine causes increase in tone and <strong>reduced motility</strong> in many parts of GIT → <strong>constipation</strong>. Also increases pressure in biliary tract leading to <strong>biliary colic</strong> especially in patients with gallstone.</p>
+
+<h3>C) Cardiovascular Effects</h3>
+<p>Opioid analgesics may cause <strong>hypotension and bradycardia</strong> in large doses.</p>
+
+<h3>D) Histamine Release</h3>
+<p>Morphine causes histamine release from mast cells leading to <strong>urticaria, sweating and vasodilatation</strong>.</p>
+
+<h3>Pharmacokinetics</h3>
+<p><strong>Absorption</strong>: Morphine has slow and erratic absorption from GIT and undergoes significant <strong>first-pass metabolism</strong> in the liver — thus it is NOT given orally. Codeine is well absorbed when given orally. Opioids provide rapid onset when taken by inhalation of smoke from burning crude opium.</p>
+<p><strong>Distribution</strong>: Morphine rapidly enters all body tissues including fetuses of pregnant women. Only small percentage crosses BBB because of its <strong>low lipid solubility</strong>. <strong>Fentanyl and heroin readily cross BBB</strong> and enter brain causing euphoria.</p>
+`
+},
+{
+  id:'uses_opioid',icon:'💉',title:'Therapeutic Uses, Contraindications & Unwanted Effects',badge:'Uses · Contraindications · Tolerance · Dependence',
+  content:`
+<h3>Therapeutic Uses</h3>
+<ul>
+  <li><strong>a) Analgesia</strong> — Strong opioids (morphine, fentanyl) for severe acute pain (trauma, burns, post-operative). Weak opioids (codeine, pentazocin) as supplementive treatment with NSAIDs in mild inflammatory pain (arthritis)</li>
+  <li><strong>b) Treatment of diarrhea</strong> — synthetic analogues with selective GIT effects (e.g. <span class="drug-tag">Loperamide</span>) and less or no CNS effects</li>
+  <li><strong>c) Relief of cough</strong> — <span class="drug-tag">Codeine</span> and <span class="drug-tag">Dextromethorphan</span> widely used in cough preparations</li>
+  <li><strong>d) Acute pulmonary oedema</strong></li>
+  <li><strong>e) Anaesthesia</strong> — opioids used as premedicant drugs before anaesthesia and surgery because of sedative, anxiolytic, and analgesic effects</li>
+</ul>
+
+<h3>Contraindications</h3>
+<ul>
+  <li><strong>Brain injury</strong> — respiratory depression and CO₂ retention cause cerebral vessels to dilate and increase CSF pressure</li>
+  <li><strong>Bronchial asthma</strong> — histamine release causes bronchconstriction</li>
+  <li>In pregnancy / as analgesic during labour</li>
+  <li>Use of pure agonist with weak partial agonist — may diminish analgesia or induce withdrawal symptoms</li>
+  <li>Patients with impaired hepatic or renal function</li>
+</ul>
+
+<h3>Unwanted Effects</h3>
+<p>Tolerance and dependence, <strong>severe respiratory depression</strong>, nausea and vomiting, constipation, dysphoria, allergy, <strong>increase intracranial pressure</strong> (serious in head injury), cerebral and spinal ischemia, <strong>acute urinary retention</strong> (especially in patients with prostatic hypertrophy).</p>
+
+<h3>Tolerance and Dependence</h3>
+<p><strong>Tolerance</strong>: An increase in dose is needed to produce a given pharmacological effect. Develops rapidly to: analgesic effect, euphoria, sedative effect, respiratory depressant effect. <em>Much less</em> with the constipating and pupillary constricting actions.</p>
+<p><strong>Physical dependence</strong>: Characterized by a clear-cut <strong>abstinence syndrome</strong> (withdrawal symptoms) when the drug is stopped after repeated administration. Withdrawal symptoms resemble severe influenza: yawning, rhinorrhea, lacrimation, pupillary dilatation, fever, sweating, piloerection, nausea, diarrhea, anxiety, muscular aches. Maximal in about 2 days, largely disappear within 8-10 days.</p>
+<p><strong>Psychological dependence</strong>: Expressed as craving for the drug. Codeine, Pentazocine, and Buprenorphine are much less likely to cause physical and psychological dependence.</p>
+
+<h3>Diagnosis & Treatment of Opioid Toxicity</h3>
+<p>Diagnosis: known addict, needle marks, miosis. Treatment: <strong>respiratory support + IV naloxone</strong> (opioid antagonist) which will quickly reverse the coma due to opioid overdose.</p>
+`
+},
+{
+  id:'specific_opioids',icon:'🔬',title:'Specific Opioid Drugs',badge:'Heroin · Codeine · Pethidin · Methadone · Pentazocin · Naloxone',
+  content:`
+<h3>Diamorphine (Heroin)</h3>
+<p>Pharmacologically very similar to morphine; converted to morphine in the body but <strong>more active than morphine</strong>. Has <strong>greater lipid solubility</strong> → crosses BBB more rapidly → greater euphoria when injected IV. Strong analgesic effect; used only for severe pain.</p>
+
+<h3>Codeine</h3>
+<p>Absorbed orally better than morphine, but has only a <strong>slight analgesic activity</strong> — used only for <strong>mild pain such as headache</strong>. Causes little or no euphoria, and is <strong>rarely addictive</strong>. Causes constipation. Used in cough mixtures due to its antitussive properties.</p>
+
+<h3>Pethidin</h3>
+<p>Similar to morphine in pharmacological properties except: causes <strong>restlessness rather than sedation</strong>, has <strong>antimuscarinic action</strong> (dry mouth and blurred vision), and has <strong>less antitussive effect</strong>. <strong>Preferred over morphine in labour pain</strong> because it is shorter-acting.</p>
+
+<h3>Etorphine</h3>
+<p>Very similar to morphine but has a very strong potency (<strong>1000 times than morphine</strong>). Very small doses are used to <strong>immobilize wild animals</strong>.</p>
+
+<h3>Methadone</h3>
+<p>Very similar to morphine pharmacologically, but has a <strong>longer duration of action</strong> and <strong>less sedative effect</strong>. The withdrawal symptoms are less acute than with morphine — for this reason <strong>methadone is used to treat morphine and heroin addiction</strong>.</p>
+
+<h3>Pentazocin</h3>
+<p>A <strong>mixed agonist-antagonist</strong>. In low doses its potency and effects are similar to morphine. At high doses it causes only slight respiratory depression and <strong>marked dysphoria and hallucinations</strong>. Causes an <strong>increase in blood pressure</strong> rather than hypotension. <strong>Does not cause dependence</strong> and its toxicity is less than morphine.</p>
+
+<h3>Opioid Antagonists</h3>
+<p><span class="drug-tag">Naloxone</span> — short acting. <span class="drug-tag">Naltrexone</span> — long acting.</p>
+<p>Naloxone has little effects on its own, but in certain doses it <strong>rapidly reverses the effect of opioids</strong>. Causes hyperalgesia under conditions of stress when endogenous opioids (enkephalines) are produced — occurs in patients undergoing dental surgery.</p>
+<p>Main use: to treat <strong>respiratory depression caused by opioid overdosage</strong> or to improve breathing in newborn babies affected by opioids given to the mother. Naloxone precipitates withdrawal symptoms in addicts. Can be used to <strong>detect opioid toxicity</strong>.</p>
+`
+},
+{
+  id:'nsaids_intro',icon:'🔥',title:'NSAIDs — Introduction & Mechanism',badge:'COX Inhibition · Anti-inflammatory · Analgesic · Antipyretic',
+  content:`
+<h3>What Are NSAIDs?</h3>
+<p>Non-steroidal anti-inflammatory drugs (NSAIDs) are a group of chemically different compounds with different <strong>anti-inflammatory, analgesic and antipyretic actions</strong>.</p>
+
+<h3>Mechanism of Action</h3>
+<p>NSAIDs act by <strong>inhibiting cyclo-oxygenase (COX) enzyme</strong>, thus inhibiting the formation of <strong>prostaglandins</strong>.</p>
+<p>Prostaglandins are autacoids produced in almost all tissues; they act at the same tissue in which they are synthesized.</p>
+<p>There are two types of COX enzyme: <strong>COX-1</strong> (a constitutive enzyme) and <strong>COX-2</strong> (an inducible enzyme). The <strong>anti-inflammatory effect</strong> of NSAIDs is related to their inhibitory effect on <strong>COX-2</strong>; their <strong>side effects</strong> are most probably related to their inhibitory action on <strong>COX-1</strong>.</p>
+
+<h3>Analgesic Effect</h3>
+<p>NSAIDs produce analgesia through inhibition of prostaglandins that sensitize nociceptive afferent nerve terminals to pain mediators such as bradykinin and 5-HT. They are mainly effective against pain in which prostaglandins sensitize nociceptors (inflammation, arthritis, toothache, muscular pain, headache).</p>
+
+<h3>Anti-inflammatory Effect</h3>
+<p>Inflammation is caused by release of chemical mediators such as histamine, 5-HT and prostaglandins. NSAIDs reduce mainly the inflammatory response caused by prostaglandins: <strong>vasodilatation, oedema, and pain</strong>.</p>
+
+<h3>Antipyretic Action</h3>
+<p>NSAIDs reduce fever through their effect on the <strong>thermoregulatory centre in the hypothalamus</strong>. The underlying mechanism is dilatation of superficial blood vessels and sweating — due to inhibitory effect of these drugs on prostaglandin production in the hypothalamus.</p>
+
+<h3>Pharmacokinetics</h3>
+<ul>
+  <li>Most NSAIDs are weak organic acids</li>
+  <li>Most are well absorbed from GIT; food does not interfere with absorption</li>
+  <li>Metabolized by phase I and phase II; some by direct glucuronidation (phase II)</li>
+  <li>Excreted in urine; most undergo enterohepatic circulation</li>
+  <li>Found in synovial fluid after repeated doses</li>
+</ul>
+
+<h3>Common Unwanted Effects</h3>
+<p><strong>GIT:</strong> Dyspepsia, diarrhea, constipation, nausea, vomiting (acute doses). Chronic use → gastric damage. <em>Piroxicam and azapropazone</em> have highest risk; <em>ibuprofen</em> has lowest risk. Gastric damage is mainly due to inhibition of prostaglandin synthesis (prostaglandins protect mucosa).</p>
+<p><strong>Skin:</strong> Mild rash to serious (fatal) rare diseases.</p>
+<p><strong>Renal:</strong> Reversible renal insufficiency; analgesic-associated nephropathy after chronic high doses (particularly paracetamol).</p>
+`
+},
+{
+  id:'nsaids_drugs',icon:'💊',title:'Important NSAIDs — Aspirin, Paracetamol & Others',badge:'Aspirin · Paracetamol · Ibuprofen · Diclofenac · Indomethacin · Piroxicam',
+  content:`
+<h3>Aspirin</h3>
+<p>Has <strong>irreversible inhibitory effect on both COX isoforms</strong>, being more selective on <strong>COX-1</strong>. Has analgesic, antipyretic, and anti-inflammatory actions. Also <strong>inhibits platelet aggregation</strong> due to its inhibitory effect on platelet cyclo-oxygenase — important in the <strong>treatment of myocardial infarction</strong>.</p>
+<p>Being a weak acid, it is largely unionized in the stomach → absorption is facilitated. The rate of urinary excretion is <strong>increased in alkaline pH</strong>.</p>
+<p><strong>Unwanted effects:</strong> Gastric bleeding, salicylism (dizziness, tinnitus, gastric upsets) in large doses, worsening of asthma in aspirin-sensitive patients, <strong>Reye's syndrome</strong> in children with viral infection, dangerous increase in warfarin action.</p>
+<p><strong>Management of aspirin toxicity:</strong> Mild cases — symptomatic treatment. Increasing urinary pH enhances elimination of salicylate. Serious cases — IV fluids and dialysis.</p>
+
+<h3>Paracetamol (Acetaminophen)</h3>
+<p>Has analgesic, antipyretic, and <strong>only weak anti-inflammatory</strong> effect. Its antipyretic and analgesic effects are due to inhibitory effect on <strong>prostaglandin synthesis in CNS</strong>. Has less effect on cyclo-oxygenase in peripheral tissues — explains its weak anti-inflammatory action.</p>
+<p>Administered orally; metabolized by liver microsomal enzymes. <strong>Suitable substitute for aspirin</strong> in patients with gastric complaints, those under risk of bleeding, and children with viral infection.</p>
+<p><strong>Unwanted effects:</strong> In normal therapeutic doses — virtually free of significant adverse effects. In large doses: hepatotoxic due to its metabolite <strong>N-acetyl-p-benzoquinone imine</strong> — reacts with sulfhydryl group of hepatic proteins leading to hepatic necrosis. <strong>N-acetylcysteine</strong> can be life-saving if administered within 10 hours of overdose. Regular intake over long period increases risk of kidney damage.</p>
+
+<h3>Ibuprofen</h3>
+<p>Better tolerated than aspirin. Used for <strong>rheumatoid arthritis</strong> because of its few side effects. Has lowest risk of gastric damage.</p>
+
+<h3>Diclofenac</h3>
+<p>Potent analgesic, antipyretic and anti-inflammatory drug. Similar in efficacy to ibuprofen. Adverse effects are common.</p>
+
+<h3>Indomethacin</h3>
+<p>Very effective and potent anti-inflammatory and antipyretic drug. High incidence of adverse effects. May aggravate pre-existing renal disease and induce <strong>mental confusion and hallucinations</strong>. Reduces efficacy of diuretics and antihypertensive action of propranolol by causing inhibition of renal prostaglandins.</p>
+
+<h3>Piroxicam</h3>
+<p>Long-acting potent anti-inflammatory, analgesic and antipyretic drug. Undergoes enterohepatic circulation. Plasma half-life about <strong>45 hours</strong>. Can be used safely in renal disease.</p>
+`
+},
+{
+  id:'general_anaesthetics',icon:'😴',title:'General Anaesthetics',badge:'Stages · Inhalation · IV Agents',
+  content:`
+<h3>Overview</h3>
+<p>General anaesthesia renders the patient <strong>unaware and unresponsive to painful stimuli</strong>. No single drug can achieve all required effects — several drugs are utilized to produce <strong>balanced anaesthesia</strong>.</p>
+<p>Preanaesthetic medication: to calm the patient, relieve pain, protect against undesirable effects of the anaesthetic, and lower the dose required. Skeletal muscle relaxants: to facilitate intubation and suppress muscle tone.</p>
+
+<h3>Examples of Preanaesthetic Medication</h3>
+<ul>
+  <li><strong>Benzodiazepines</strong> (e.g. diazepam) — relieve anxiety, facilitate amnesia</li>
+  <li><strong>Barbiturates</strong> (e.g. phenobarbital) — for sedation</li>
+  <li><strong>Antihistamines</strong> (e.g. diphenhydramine) — prevent allergic reaction or reduce gastric acid secretion</li>
+  <li><strong>Antiemetic</strong> (e.g. droperidol)</li>
+  <li><strong>Opioid analgesics</strong> (e.g. fentanyl) — for analgesia</li>
+  <li><strong>Anticholinergic</strong> (e.g. scopolamine) — to <em>prevent bradycardia</em> and prevent fluid secretion in the respiratory tract</li>
+</ul>
+
+<h3>Stages of Anaesthesia</h3>
+<ol>
+  <li><strong>Stage I — Analgesia</strong>: patient is conscious and drowsy; response to painful stimuli is reduced</li>
+  <li><strong>Stage II — Excitement</strong>: patient loses consciousness, does not respond to non-painful stimuli but responds in a reflex manner to painful stimuli; experiences delirium and violent behavior and irregular respiration</li>
+  <li><strong>Stage III — Surgical anaesthesia</strong>: spontaneous movement ceases and respiration becomes regular. With deepening anaesthesia reflexes disappear and muscles relax fully</li>
+  <li><strong>Stage IV — Medullary paralysis</strong>: respiration and vasomotor control ceases; death occurs within few minutes</li>
+</ol>
+
+<h3>A) Inhalation Anaesthetics</h3>
+<p>Rapid induction and recovery — flexible control over depth of anaesthesia. Speed of induction depends on: a) solubility of the anaesthetic agent in blood (blood:gas partition coefficient) b) lipid solubility.</p>
+<p><em>Agents with low blood:gas partition coefficient</em> → <strong>rapid induction and recovery</strong> (e.g. nitrous oxide, enflurane). Agents with high lipid solubility (e.g. halothane, methoxyflurane) accumulate gradually in body fat → delayed recovery if used for long operations.</p>
+
+<p><strong>Halothane</strong>: Most widely used inhalation anaesthetic. Highly potent, non-explosive, non-irritant, smooth induction and recovery. Disadvantages: hepatotoxic, may cause fall in B.P., produces poor analgesia and poor muscle relaxation, may cause cardiac dysrhythmia. <strong>Should not be used for obstetric purposes</strong> due to its relaxant effect on the uterus.</p>
+<p><strong>Nitrous oxide</strong>: Colourless and odourless non-explosive gas — "laughing gas". Very rapid onset, effective analgesic, non-irritant. Disadvantages: low potency — cannot be used alone. May cause hypoxia — avoid in patients with respiratory problems. Produces poor muscle relaxation.</p>
+<p><strong>Methoxyflurane</strong>: Highly potent (high lipid solubility). Effective analgesic; produces less uterine relaxation than halothane — useful for obstetric purposes. Induction and recovery slow (high blood:gas partition coefficient). May cause cardiovascular and respiratory depression, renal damage due to metabolism to fluoride.</p>
+<p><strong>Enflurane</strong>: Less potent than halothane but causes rapid induction and recovery. Very rapid induction, less risk of toxicity. May cause seizure. Contraindicated for patients with renal failure.</p>
+
+<h3>B) Intravenous Anaesthetic Agents</h3>
+<p>Commonly used for <strong>induction of anaesthesia</strong> followed by an inhalation anaesthetic. Produce rapid induction (about 15-20 min). Recovery is due to redistribution.</p>
+<p><strong>Thiopentone</strong>: Barbiturate drug, very high lipid solubility → rapid action (about 5 min). Short action due to redistribution. Metabolized slowly, accumulates in body fat. <strong>No analgesic effect</strong> and has a narrow margin of safety.</p>
+<p><strong>Etomidate</strong>: Similar to thiopentone but has a <strong>wide margin of safety</strong>. More rapidly metabolized — less likely to produce a prolonged hangover. May cause involuntary movement during induction and postoperative nausea and vomiting. Possible risk of adrenocortical suppression.</p>
+<p><strong>Propofol</strong>: Phenol intravenous anaesthetic. Very rapidly metabolized → rapid recovery. Has <strong>antiemetic action</strong>. Can be used with fentanyl for total IV anaesthesia. <strong>Commonly used for outpatient surgery</strong>.</p>
+<p><strong>Ketamine</strong>: Produces <strong>dissociative anaesthesia</strong> — patient may remain conscious but amnesic and insensitive to pain. High incidence of dysphoria, hallucination, delirium and irrational behavior — less marked in children. <strong>Used with benzodiazepines for minor procedures in paediatrics</strong>.</p>
+`
+},
+{
+  id:'local_anaesthetics',icon:'💉',title:'Local Anaesthetics',badge:'Mechanism · Classification · Lidocaine · Procaine · Cocaine',
+  content:`
+<h3>Overview</h3>
+<p>Local anaesthesia results when sensory transmission from a local area of body to the CNS is blocked. Local anaesthetics block the <strong>sodium channels</strong> of excitable membranes, blocking the initiation and propagation of nerve impulse. They block nociceptive and sympathetic transmission first; <strong>motor nerves are blocked last</strong>.</p>
+<p><em>NB: Inflamed tissues are resistant to local anaesthetics because inflamed tissues are often acidic.</em> Local anaesthetic activity is increased at <strong>alkaline pH</strong>.</p>
+
+<h3>Classification</h3>
+<p><strong>(i) Ester-linked</strong>: <span class="drug-tag">Cocaine</span> <span class="drug-tag">Procaine</span> <span class="drug-tag">Chlorprocaine</span> <span class="drug-tag">Tetracaine</span> <span class="drug-tag">Benzocaine</span> <span class="drug-tag">Benoxinate</span></p>
+<p><strong>(ii) Amide-linked</strong>: <span class="drug-tag">Lidocaine</span> <span class="drug-tag">Mepivacaine</span> <span class="drug-tag">Bupivacaine</span> <span class="drug-tag">Dibucaine</span></p>
+
+<h3>Types of Local Anaesthesia</h3>
+<ul>
+  <li><strong>Surface/Topical</strong> — local application on mucous membranes: lignocaine, tetracaine, benzocaine</li>
+  <li><strong>Infiltration</strong> — directly injected into tissues: lignocaine, bupivacaine, prilocaine, procaine</li>
+  <li><strong>Nerve block</strong> — injected close to a nerve trunk: lignocaine, bupivacaine, prilocaine, procaine</li>
+  <li><strong>Spinal anaesthesia</strong> — injected in subarachnoid space (CSF): lignocaine, bupivacaine, prilocaine, procaine</li>
+  <li><strong>Epidural anaesthesia</strong> — injected into extradural space between the dura and bony structure of spinal canal</li>
+</ul>
+
+<h3>Pharmacokinetics</h3>
+<p>Metabolism of <strong>esters</strong> is by plasma and tissue cholinesterases (rapid). Procaine and chlorprocaine have half-lives of only 1-2 minutes. The <strong>amides</strong> are hydrolyzed in the liver by cytochrome P450 (half-lives 1.8-6 hours). Bupivacaine and ropivacaine are the longest-acting local anaesthetics.</p>
+<p>A <strong>vasoconstrictor (e.g. adrenaline)</strong> added with the local anaesthetic reduces blood flow and prolongs local action.</p>
+
+<h3>Adverse Reactions & Drug Interactions</h3>
+<p>Excessive systemic absorption: light-headedness, dizziness, auditory/visual disturbances, mental confusion, tremors, convulsions, respiratory arrest. Bradycardia, hypotension, cardiac arrhythmias. <strong>Lignocaine and prilocaine</strong> can induce <strong>methemoglobinemia</strong> due to an aniline metabolite.</p>
+<ul>
+  <li>Antibacterial action of sulfonamides is interfered with <strong>procaine</strong> (because procaine releases PABA on hydrolysis)</li>
+  <li><strong>Cimetidine</strong> increases plasma levels of lignocaine and other amide-type by inhibiting hepatic microsomal enzyme</li>
+  <li><strong>Propranolol</strong> increases plasma levels of amide-type by decreasing hepatic blood flow</li>
+  <li><strong>Phenobarbitone</strong> decreases plasma levels of amide local anaesthetics by hepatic enzyme induction</li>
+</ul>
+
+<h3>Specific Drugs</h3>
+<p><strong>Lidocaine</strong>: Most widely used, quick onset, long duration with adrenaline, metabolized in liver, used also to treat arrhythmias.</p>
+<p><strong>Procaine</strong>: As potent as lidocaine, short duration, <em>not effective for surface anaesthesia</em> (poor absorption from mucous membranes), readily hydrolyzed by plasma cholinesterase to PABA.</p>
+<p><strong>Cocaine</strong>: Drug of abuse, should not be injected (CNS toxicity), causes cardiac depression in hypertensive patients, should not be used with adrenaline (cocaine potentiates adrenaline).</p>
+<p><strong>Bupivacaine</strong>: Slow onset, long duration, mainly used in spinal anaesthesia.</p>
+<p><strong>Benzocaine</strong>: Used in surface anaesthesia, dusting powder, and throat lozenges.</p>
+`
+},
+{
+  id:'anxiety_bdz',icon:'🧘',title:'Anti-Anxiety Drugs — Benzodiazepines',badge:'BDZ · Mechanism · Therapeutic Uses · Flumazenil',
+  content:`
+<h3>Overview of Anxiety</h3>
+<p>Anxiety is an unpleasant state of tension, apprehension and uneasiness. Severe anxiety causes behavioral and mental function impairment — tachycardia, palpitation, sweating, digestive disorders, headache, backache, high blood pressure.</p>
+
+<h3>Benzodiazepines (BDZ)</h3>
+<p>Most widely used anxiolytic drugs. Have <strong>largely replaced barbiturates</strong> to treat anxiety since they are more effective and safer. Examples: <span class="drug-tag">Diazepam</span> <span class="drug-tag">Lorazepam</span> <span class="drug-tag">Alprazolam</span></p>
+
+<h3>Mechanism of Action</h3>
+<p>They act on <strong>benzodiazepine (BDZ) receptors in CNS</strong>. These receptors are adjacent to <strong>GABA receptors</strong> and chloride channel. BDZ modulate the activity of GABA (an inhibitory neurotransmitter) and <strong>increase chloride conductance</strong>.</p>
+
+<h3>Pharmacological Actions</h3>
+<ul>
+  <li><strong>Reduction of anxiety</strong> — at low doses</li>
+  <li><strong>Sedative and hypnotic</strong> — all BDZs used to treat anxiety have some sedative properties; at higher doses certain BDZ produce hypnosis</li>
+  <li><strong>Anticonvulsant effect</strong> — some BDZs have anticonvulsant properties; used to treat epilepsy and other seizure disorders</li>
+  <li><strong>Muscle relaxant effect</strong> — BDZs relax the spasticity of skeletal muscles</li>
+</ul>
+<p>Benzodiazepines do <em>NOT</em> have antipsychotic activity or analgesic action and do not affect the autonomic nervous system.</p>
+
+<h3>Therapeutic Uses</h3>
+<ul>
+  <li><strong>Anxiety disorders</strong> — reserved for severe anxiety and only short period to avoid addiction. <em>Diazepam</em> is the drug of choice for acute and recurrent anxiety. <em>Alprazolam and clonazepam</em> for panic and phobic disorders</li>
+  <li><strong>Preanaesthetic medication</strong> — diazepam or lorazepam for anxiolytic, sedative, amnesic and muscle relaxant actions</li>
+  <li><strong>Hypnotics</strong> — have replaced barbiturates as hypnotics</li>
+  <li>Diazepam and chlordiazepoxide IV in <strong>tetanus, strychnine poisoning, atropine poisoning</strong> and infantile convulsions to control convulsions</li>
+  <li>Diazepam and chlordiazepoxide to <strong>reduce alcohol, barbiturate, cocaine and opiate withdrawal symptoms</strong></li>
+  <li>Clonazepam and clobazepam for <strong>major and minor forms of epilepsy</strong>; diazepam for status epilepticus</li>
+  <li>Diazepam and midazolam to <strong>induce anaesthesia</strong></li>
+</ul>
+
+<h3>Precautions</h3>
+<ul>
+  <li>Should not be used with drugs causing sedation</li>
+  <li>Should not be given to patients with kidney or liver diseases</li>
+  <li>When used with opioid analgesics the dose of the opioid should be <strong>reduced to one third</strong></li>
+  <li>Lower doses should be given to elderly</li>
+</ul>
+
+<h3>Benzodiazepine Antagonist</h3>
+<p><span class="drug-tag">Flumazenil</span> is a benzodiazepine antagonist. Used parenterally to treat BDZ overdosage.</p>
+`
+},
+{
+  id:'other_anxiolytics',icon:'🌀',title:'Other Anxiolytic Drugs',badge:'Buspirone · Ondansetron · Propranolol',
+  content:`
+<h3>B) Buspirone</h3>
+<p>A <strong>non-benzodiazepine anxiolytic agent</strong>. It is a partial agonist at <strong>5-HT₁A receptors</strong> and reduces 5-HT release. Does NOT have sedative, hypnotic, and muscle relaxant properties. Causes less impairment of memory and has a <strong>very low addiction potential</strong>. Its onset of clinical effect is very slow (<strong>4-6 weeks</strong>).</p>
+<p><strong>Side effects:</strong> Headache, dizziness, insomnia, dysphoria, and gastrointestinal upsets.</p>
+
+<h3>C) Ondansetron</h3>
+<p>A <strong>5-HT₃ receptor antagonist</strong> (this receptor modulates dopaminergic and cholinergic activity). Similar to buspirone in its actions and advantages. Its onset of clinical response is <strong>quick</strong>. Does not have CNS stimulant effect. Particularly used for <strong>anxiety associated with withdrawal of addicting drugs</strong> such as opioids, cocaine and BDZs.</p>
+
+<h3>D) Propranolol</h3>
+<p>A <strong>non-selective β-blocker</strong>. It reduces the <strong>peripheral autonomic manifestations</strong> of anxiety. May also have central activity.</p>
+`
+}
+];
+
+// ═══════════════════ QUESTIONS DATA ═══════════════════
+const QUESTIONS = {
+intro_opioid:[
+  {type:'MCQ',q:'According to their actions, opioids are classified to:',opts:['Full agonists','Partial agonists','Antagonists','All of the above'],correct:'D'},
+  {type:'MCQ',q:'The major action of Opioids on σ (Sigma) receptors is:',opts:['Hallucination','Euphoria','Analgesia','None of the above'],correct:'A'},
+  {type:'MCQ',q:'Delta receptors (δ) are responsible for:',opts:['Most analgesic effects','Some analgesic effects','Hallucination','Euphoria'],correct:'B'},
+  {type:'MCQ',q:'Most analgesic action is due to:',opts:['Sigma receptors','μ (Mu) receptors','δ (delta) receptors','K (kappa) receptors'],correct:'B'},
+  {type:'MCQ',q:'Dextropropoxyphene is related to:',opts:['Phenylpiperidine series','Methadone series','Benzmorphan series','Thebaine series'],correct:'B'},
+  {type:'MCQ',q:'σ (Sigma) receptors responsible for:',opts:['Euphoria','Analgesia','Hallucination','All of above'],correct:'C'},
+  {type:'MCQ',q:'All the following are related to opioids, except:',opts:['Euphoria due to action on (mu) receptors','Spinal level analgesia due to action on K (kappa) receptors','Hallucination due to action on (delta) receptors','Dysphoria due to σ (sigma) receptors'],correct:'C'},
+  {type:'TF',q:'Most of the analgesic effects of the Opioids due to Delta receptors.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'K (kappa) receptors, responsible for analgesia at the spinal level.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'K (Kappa) receptors are responsible for most analgesic action.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Morphine inhibits some excitatory transmitters from nerve terminals.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Etorphine has very strong potency.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Pentazocine is related to the Methadone series.',opts:['True','False'],correct:'B'},
+],
+pharmacology_opioid:[
+  {type:'MCQ',q:'Respiratory depression of Opioid produced by:',opts:['Local action on Bronchi','Indirect action','None of the above','Centrally action in the CNS'],correct:'D'},
+  {type:'MCQ',q:'Action of Opioid on Chemoreceptor trigger zone produce:',opts:['Nausea and vomiting','Cough depression','Sedation','Euphoria'],correct:'A'},
+  {type:'MCQ',q:'Opioid analgesics causes:',opts:['Hypotension','Constipation','Urticaria','All of the above'],correct:'D'},
+  {type:'MCQ',q:'Morphine decreases the release of substance P by:',opts:['Action on sigma receptor','Action on delta receptor','Action on kappa receptor','(a) and (c)'],correct:'C'},
+  {type:'MCQ',q:'Miosis is important for diagnosis of:',opts:['Opioid overdose','Narcotic overdose','NSAIDs-toxicity','Salicylism'],correct:'A'},
+  {type:'MCQ',q:'Opioids produce bronchoconstriction by:',opts:['Histamine release','Inhibit respiratory mechanism','(a) and (b)','HT release-5'],correct:'A'},
+  {type:'MCQ',q:'Morphine causes:',opts:['Decrease GIT tone','Decrease biliary tone','Constipation','(b) and (c)'],correct:'C'},
+  {type:'MCQ',q:'Morphine causes: (cardiovascular)',opts:['Urticaria','Bradycardia','Hypertension','(a and b)'],correct:'D'},
+  {type:'MCQ',q:'Chemoreceptor trigger zone responsible for:',opts:['Vomiting','Euphoria','Headache','Analgesia'],correct:'A'},
+  {type:'TF',q:'Miosis is an important diagnosis for opioid overdose.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Mydriasis is important for diagnosis of Opioid overdose.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Morphine is slow absorption from gastrointestinal tract.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Tolerance to opioids develops to the miosis.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Chemoreceptor trigger zone (CTZ) is responsible for vomiting for patient given Codeine.',opts:['True','False'],correct:'A'},
+],
+uses_opioid:[
+  {type:'MCQ',q:'Tolerance to Opioids much less developed with the:',opts:['Euphoria','Constipating and pupillary constricting actions','All of the above'],correct:'B'},
+  {type:'MCQ',q:'Craving for the drug indicate to:',opts:['Psychological dependence','Physical dependence','Tolerance','Addiction'],correct:'A'},
+  {type:'MCQ',q:'Opioid withdrawal symptoms characterized by:',opts:['Mydriasis','Nausea','Constipation','(a) and (b)'],correct:'D'},
+  {type:'MCQ',q:'Opioids not causing physical dependence are:',opts:['Codeine','Pentazocine','Buprenorphine','All of the above'],correct:'D'},
+  {type:'MCQ',q:'Opioids uses in acute pulmonary oedema because of:',opts:['Release histamine','CO₂-retention','Muscle relaxant','(a) and (c)'],correct:'A'},
+  {type:'MCQ',q:'Opioids may cause bradycardia due to:',opts:['Action on gall bladder','Histamine release','Prostaglandin release','(a) and (b)'],correct:'B'},
+  {type:'MCQ',q:'Craving for drug is:',opts:['Physical dependence','Tolerance','Psychological dependence','Euphoria'],correct:'C'},
+  {type:'TF',q:'Loperamide is selective GIT and has no CNS effects.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Opioid can be used for patient with brain injury.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Opioid toxicity is treated by naloxone.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Morphine is used in acute pulmonary oedema.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Loperamide causes diarrhea.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Loperamide is mainly act on GIT.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Opioids are used after anesthesia to produce sedative effects.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'σ (Sigma) receptors are responsible for euphoria produced by Opioids.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Buprenorphine is much likely to cause physical and psychological dependence.',opts:['True','False'],correct:'B'},
+],
+specific_opioids:[
+  {type:'MCQ',q:'Morphine and Heroin addiction treated by:',opts:['Pethidin','Codeine','Methadone','Pentazocin'],correct:'C'},
+  {type:'MCQ',q:'Heroin is:',opts:['Converted to Diamorphine in the body','Used for mild pain','Drug abuse','When given inhalation cause euphoria','(c) and (d)'],correct:'E'},
+  {type:'MCQ',q:'Heroin is (lipid):',opts:['Not similar Morphine','Low lipid solubility','Used for moderate pain','Cross BBB'],correct:'D'},
+  {type:'MCQ',q:'Pethidin is:',opts:['Less pharmacological properties than morphine','Short acting drug','Cause dry mouth','(b) and (c)'],correct:'D'},
+  {type:'MCQ',q:'Pentazocine is:',opts:['Cause increase blood pressure','Cause dependence','High toxicity','Decrease blood pressure'],correct:'A'},
+  {type:'MCQ',q:'Methadone is less sedation than Morphine:',opts:['True','False'],correct:'A'},
+  {type:'MCQ',q:'Etorphine is:',opts:['Buprenorphine group','Less Physical and Psychological dependence','(a) and (b)','None of the above'],correct:'C'},
+  {type:'MCQ',q:'Codeine is:',opts:['Good analgesic','Orally absorption','(a) and (b)','Cause diarrhea'],correct:'C'},
+  {type:'MCQ',q:'All the following are not correct, except:',opts:['Naloxone action depend on dose concentration','Codeine used as euphoric','Pethidin has good antitussive effect','Pentazocin action not depend on dose concentration'],correct:'A'},
+  {type:'TF',q:'Pentazocin is used to treat morphine and heroin addiction.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Pethidin is preferred over morphine in labour pain.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Pethidin is drug choice in labour pain.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Pentazocine causes hypotension.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Pethidine causes sedation.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Heroin is converted to diamorphine.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Naloxone has important unwanted effect of its own.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Naloxone is morphine analogues.',opts:['True','False'],correct:'B'},
+],
+nsaids_intro:[
+  {type:'MCQ',q:'Anti-inflammatory effect of NSAIDs is related to their:',opts:['Inhibitory effect on COX-1','Inhibitory effect on COX-2','Not related to COX'],correct:'B'},
+  {type:'MCQ',q:'NSAID side effects are due to:',opts:['COX-2 inhibition','COX-1 stimulation','COX-1 inhibition','(a) and (c)'],correct:'C'},
+  {type:'MCQ',q:'All the following are (NSAID), except:',opts:['Aspirin','Hydrocortisone','Diclofenac'],correct:'B'},
+  {type:'MCQ',q:'NSAIDs reduce fever by:',opts:['Dilatation of vascular blood vessels and sweating','Constriction of vascular blood vessels and sweating','Decrease Bradykinine release','Decrease 5-HT'],correct:'A'},
+  {type:'MCQ',q:'Analgesic effects of NSAIDs by:',opts:['Inhibit histamine','Inhibit prostaglandins','Stimulate Acetylcholine release','(a) and (b)'],correct:'B'},
+  {type:'MCQ',q:'About NSAIDs:',opts:['Some of them are metabolized by phase I and phase II','Most of them are metabolized by phase II','Excreted in urine and bile'],correct:'A'},
+  {type:'MCQ',q:'Non-Steroidal anti-inflammatory drugs have unwanted effects on:',opts:['GIT','Skin','Kidney','All of the above'],correct:'D'},
+  {type:'MCQ',q:'Non-Steroidal anti-inflammatory drugs excreted in:',opts:['Urine','Bile','Milk','(a) and (b)'],correct:'D'},
+  {type:'MCQ',q:'NSAIDs are:',opts:['Act on hypothalamus','Cause sweating','(a) and (b)','Stimulate inflammatory response'],correct:'C'},
+  {type:'MCQ',q:'Increase Prostaglandin lead to:',opts:['Oedema','Pain','Vasodilatation','All of the above'],correct:'D'},
+  {type:'MCQ',q:'Long period intake of Paracetamol lead to:',opts:['Kidney damage','Liver damage','(a) and (b)','No adverse effects'],correct:'C'},
+  {type:'MCQ',q:'Hyperalgesia is:',opts:['Related to inflammation','Related to tissues injury','(a) and (b)','Not related to injury'],correct:'C'},
+  {type:'MCQ',q:'Non steroidal anti inflammatory drugs (NSAIDs) act by:',opts:['Stimulate prostaglandin','Stimulate prostaglanding','Inhibiting prostaglandin','Inhibiting Adrenaline'],correct:'C'},
+  {type:'TF',q:'Anti-inflammatory effects of NSAIDs related to inhibitory effects on COX-2.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Some of NSAIDs are metabolized by direct Glucoronidation.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Most of NSAIDs are metabolized by direct glucoronidation.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Inflammation is caused due to the release of 5-HT.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Release of 5-HT lead to inflammation.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Oedema is response stimulated by prostaglandins.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Prostaglandins act at the same tissue in which they are synthesized.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Anti-inflammatory effect of NSAIDs is related to COX-2.',opts:['True','False'],correct:'A'},
+],
+nsaids_drugs:[
+  {type:'MCQ',q:'Aspirin is:',opts:['Equipotent action on both COX-Isoforms','Not safe for myocardial infarction','Contraindicated for asthma','Good with warfarin','(a) and (c)'],correct:'E'},
+  {type:'MCQ',q:'Aspirin is important in treatment of:',opts:['Headache','Myocardial infarction','Hypertension','None of the above'],correct:'B'},
+  {type:'MCQ',q:'Aspirin is (COX):',opts:['Equipotent action on both COX isoforms','More selective on COX2','Good for asthmatic patient','All above','None of the above'],correct:'E'},
+  {type:'MCQ',q:'Aspirin is:',opts:['Analgesic','Antipyretic','Anti-inflammatory','Anti platelet aggregation','All of the above'],correct:'E'},
+  {type:'MCQ',q:'Effect of aspirin in children with viral infection called:',opts:['Dizziness','Tinnitus','Hyperthermia','None of the above (Reye\'s syndrome)'],correct:'D'},
+  {type:'MCQ',q:'Paracetamol is suitable substitute for aspirin as analgesic in patients with:',opts:['Gastric complaints','Under risk of bleeding','For children with viral infection','All of the above'],correct:'D'},
+  {type:'MCQ',q:'Paracetamol is:',opts:['Analgesic','Antipyretic','(a) and (b)','Good anti-inflammatory'],correct:'C'},
+  {type:'MCQ',q:'Higher dose of Paracetamol leads to hepatic necrosis, but in normal dose not cause adverse effects.',opts:['True','False'],correct:'A'},
+  {type:'MCQ',q:'Normal dose of Paracetamol for long period lead to kidney damage.',opts:['True','False'],correct:'A'},
+  {type:'MCQ',q:'Piroxicam is:',opts:['Long acting','Not used for renal disease','Short half life','(a) and (b)'],correct:'D'},
+  {type:'MCQ',q:'Piroxicam is (safe):',opts:['Short acting','Not safe for renal disease','Common adverse effects','(a) and (c)'],correct:'B'},
+  {type:'MCQ',q:'Indomethacin is:',opts:['Safe for renal disease','Stimulate renal Prostaglandin','Cause hallucinations','Inhibit respiration'],correct:'C'},
+  {type:'MCQ',q:'Indomethacin is (analgesic):',opts:['Potent analgesic','No adverse effects','Increase Propranolol action','(a) and (b)'],correct:'A'},
+  {type:'MCQ',q:'Drug relieves of tissue injury related pain is:',opts:['Aspirin','Ibuprofen','Diclofenac','Paracetamol'],correct:'C'},
+  {type:'TF',q:'Salicylism involved dizziness and gastric upsets.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Salicylism is aspirin toxicity.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Ibuprofen have few side effects.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Piroxicam is not safe in patient with renal disease.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Piroxicam is not inhibit renal Prostaglandin.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Paracetamol is good anti-inflammatory effects.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Paracetamol is a strong anti-inflammatory.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Severe salicylate toxicity treated by pH-manipulation.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Reye\'s syndrome is precipitation in children with bacterial infection.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Piroxicam have less side effects.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Azapropazone cause gastric damage with chronic use.',opts:['True','False'],correct:'A'},
+],
+general_anaesthetics:[
+  {type:'MCQ',q:'Excitement is:',opts:['Stage I-anaesthesia','Stage II-anaesthesia','Stage III-anaesthesia','Stage IV-anaesthesia'],correct:'B'},
+  {type:'MCQ',q:'Surgical anaesthesia is:',opts:['Stage I','Stage II','Stage III','Stage IV'],correct:'C'},
+  {type:'MCQ',q:'Medullary paralysis is:',opts:['Stage II-anaesthesia','Light anaesthesia','Balanced anaesthesia','Stage III-anaesthesia','None of the above'],correct:'E'},
+  {type:'MCQ',q:'Stage-I-anaesthesia is:',opts:['Excitement','Analgesia','Surgical','Medullary paralysis'],correct:'B'},
+  {type:'MCQ',q:'Drug commonly used for outpatient surgery is:',opts:['Tetracaine','Propofol','Lignocaine','Emodiate','Ketamine'],correct:'B'},
+  {type:'MCQ',q:'Dissociative anaesthesia produced by:',opts:['Propofol','Ketamine','Thiopentone','Etomidate'],correct:'B'},
+  {type:'MCQ',q:'Ketamine produces:',opts:['Light anaesthesia','Deep anaesthesia','Surgical anaesthesia','Dissociative anaesthesia'],correct:'D'},
+  {type:'MCQ',q:'Thiopentone is:',opts:['Very high lipid soluble','Very high water soluble','Narrow margin of safety','(a) and (c)'],correct:'D'},
+  {type:'MCQ',q:'Which one of the following drug has no analgesic effect?',opts:['Etomidate','Thiopentone','Ketamine','Propofol'],correct:'B'},
+  {type:'MCQ',q:'Thiopentone is (no analgesic):',opts:['High water soluble','Slow onset','Fast metabolized','No analgesic'],correct:'D'},
+  {type:'MCQ',q:'Nitrous oxide is:',opts:['Very rapid onset','Effective analgesic','Non irritant','All of the above'],correct:'D'},
+  {type:'MCQ',q:'Nitrous oxide is (poor):',opts:['Safe for asthma','Poor muscle relaxant','Slow onset','Very potent'],correct:'B'},
+  {type:'MCQ',q:'Agents with low blood:gas partition coefficient produces:',opts:['Slow induction and recovery','Rapid induction and recovery','Not related to induction and recovery','Slow induction and rapid recovery'],correct:'B'},
+  {type:'MCQ',q:'Thiopentone has short action due to:',opts:['Very high lipid solubility','Rapid penetration of BBB (5 min)','Accumulates in body fat','Other cause'],correct:'B'},
+  {type:'MCQ',q:'Drug used for outpatient surgery is:',opts:['Propofol','Ketamine','Aspirin','Adrenaline'],correct:'A'},
+  {type:'MCQ',q:'Etomidate is:',opts:['Wide margin of safety','Slow metabolism','Produce a prolonged hangover','Similar to Propofol'],correct:'A'},
+  {type:'MCQ',q:'Halothane is:',opts:['Cause increase blood pressure','Cause decrease blood pressure','Good muscle relaxant','Irritant'],correct:'B'},
+  {type:'MCQ',q:'Nitrous oxide is (slow):',opts:['Slow onset','Irritant','High potency','Used alone','None of the above'],correct:'E'},
+  {type:'MCQ',q:'Enflurane is:',opts:['Slow induction','Not good for patient with renal failure','High toxic','(b and c)'],correct:'B'},
+  {type:'MCQ',q:'Propofol is:',opts:['Slow metabolism','Slow recovery','Used for outpatient surgery','(b and c)'],correct:'C'},
+  {type:'MCQ',q:'All the following are correct, except:',opts:['The patient is drowsy in stage I-anesthesia','Respiration becomes regular in stage III-anesthesia','Scopolamine prevent bradycardia after anesthesia','Droperidol used as antiemetic before anesthesia'],correct:'C'},
+  {type:'MCQ',q:'All the following are not correct, except (anaesthetic):',opts:['Halothane produces good muscle relaxation','Nitrous oxide is high potency','Enflurane is less potent than Halothane','Methoxyflurane not used for obstetric purposes'],correct:'C'},
+  {type:'TF',q:'Enflurane is more potent than Halothane.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Recovery from I.V. anaesthesia is depend on Blood:Gas partition coefficient.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'No single drug is capable to achieving general anaesthesia.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Propofol produce a dissociative anaesthesia.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Enflurane may cause seizure.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Methoxyflurane may cause hypoxia.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Diazepam used as preanaesthetic medication to facilitate amnesia.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Stage II-anaesthesia involved undesirable reflexes.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Low blood:gas partition coefficient indicate to slow induction.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Etomidate produce a prolonged hangover.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Halothane have low blood gas partition coefficient.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Methoxyflurane is highly potent anaesthetic due to low lipid solubility.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Etomidate is less side effects because wide margin of safety.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Halothane may cause fall in blood pressure.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Ketamine is safe in children.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Enflurane is slow induction.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Surgical anesthesia is stage III-anesthesia.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Halothane is highly potent.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Scopolamine is causes bradycardia.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Scopolamine is used to prevent Bradycardia as preanaesthetic medication.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Halothane is not be used for obstetric purposes.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Enflurane is less risk of toxicity.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'A single drug is capable of achieving general anaesthesia.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Propofol is used with Fentanyl.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'In stage-I-anesthesia, the patient is not response to painful stimuli.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Etomidate is cause nausea and vomiting during operation.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Methoxyflurane does not cause respiratory depression.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Deepening anaesthesia is good for surgery.',opts:['True','False'],correct:'A'},
+],
+local_anaesthetics:[
+  {type:'MCQ',q:'Antibacterial action of Sulphonamides is interfered with:',opts:['Lidocaine','Cocaine','Mepivacaine','Procaine'],correct:'D'},
+  {type:'MCQ',q:'Drug readily hydrolyzed by plasma Cholinesterase to PABA is:',opts:['Cocaine','Mepivacaine','Lidocaine','Procaine'],correct:'D'},
+  {type:'MCQ',q:'Esters Local anaesthetic are metabolized by:',opts:['Cytochrome P450','Cholinesterases','Monoaminoxidase (MAO)','COMT'],correct:'B'},
+  {type:'MCQ',q:'Local anaesthetic injected in subarachnoid space called:',opts:['Surface anaesthesia','Epidural anaesthesia','Spinal anaesthesia','Nerve block anaesthesia'],correct:'C'},
+  {type:'MCQ',q:'Procaine is:',opts:['Long duration','Potent','Surface anesthetic','Drug abuse','None of the above (short duration/potent)'],correct:'B'},
+  {type:'MCQ',q:'Bupivacaine is:',opts:['Slow onset','Short duration','Not good in spinal anesthesia','(a and c)'],correct:'A'},
+  {type:'MCQ',q:'Bupivacaine is (long):',opts:['Short duration','Long duration','Fast onset','Used in dusting powder'],correct:'B'},
+  {type:'MCQ',q:'Methemoglobinemia can be induced by:',opts:['Ropivacaine','Bupivacaine','Prilocaine','Procaine'],correct:'C'},
+  {type:'MCQ',q:'Benzocaine is:',opts:['Used in spinal anesthesia','Generally used in dentistry','Used in dusting powder','All of the above'],correct:'C'},
+  {type:'MCQ',q:'About Ester-linked local anesthetic:',opts:['Tetracaine is long duration','Cocaine is medium duration','Procaine is short duration','All of the above'],correct:'D'},
+  {type:'MCQ',q:'Lidocaine is:',opts:['Liver metabolism','Slow onset','Not widely used','Not used with Adrenaline'],correct:'A'},
+  {type:'MCQ',q:'Local anaesthetic is injected close to nerve trunk called:',opts:['Surface anaesthesia','Infiltration','Nerve block anaesthesia','Spinal anaesthesia'],correct:'C'},
+  {type:'MCQ',q:'Propranolol increases plasma levels of:',opts:['Cocaine','Chlorprocaine','Benoxinate','Procaine','None of the above (amide-type)'],correct:'E'},
+  {type:'MCQ',q:'Higher dose of procaine produce:',opts:['CNS stimulation','CNS depression','CNS stimulation followed by depression','Not affect CNS'],correct:'C'},
+  {type:'MCQ',q:'Mepivacaine is:',opts:['Related to Procaine','Used in surface anesthesia','Related to Lidocaine','(b) and (c)'],correct:'C'},
+  {type:'MCQ',q:'Local anesthesia activity is:',opts:['Increase in acidic media','Decrease in alkaline media','Decrease in inflamed tissues','(b) and (c)'],correct:'C'},
+  {type:'MCQ',q:'Last action of local anesthesia is:',opts:['Blocked sympathetic','Blocked nociceptive action','Stimulate motor nerves','Stimulate sympathetic'],correct:'C'},
+  {type:'MCQ',q:'Dibucaine is:',opts:['General anesthetic agent','NSAIDs','Opioid','Ester local anesthetic','Amide local anesthetic'],correct:'E'},
+  {type:'TF',q:'Cocaine is Ester-linked local anaesthetic.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Bupivacaine is short duration.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Phenobarbitone decrease plasma levels of Amide local anaesthetic by hepatic enzyme induction.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Benzocaine used in dusting powder.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Antibacterial action of Sulphonamides is interfered with Lidocaine.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Dibucaine is amide local anaesthetic.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Propranolol decrease plasma level of amide local anaesthetic.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Bupivacaine is ester linked local anaesthetic.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Mepivacaine chemically and pharmacologically related to Lidocaine.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Chloroprocaine have half-lives of only 10-20 minutes.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Local anesthetics block nerve conduction by potentiate sodium entry.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Local anaesthetic blocks the sodium channel.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Local anesthesia block nerve conduction by decrease sodium entry.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Normal dose of local anesthetic can affect cardiovascular system (CVS).',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Ropivacaine is short acting local anesthetic agent.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Injection into extradural space is called epidural anesthesia.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Injection distal to a nerve trunk can induce anaesthesia close to the injection.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Clinical dose of Lidocaine cause excitation.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Procaine is of long duration.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Benzocaine is not used in surface anaesthesia.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Mepivacaine is chemically related to Procaine.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Procaine is not completely ionized at physiological PH.',opts:['True','False'],correct:'A'},
+],
+anxiety_bdz:[
+  {type:'MCQ',q:'Drug given in atropine poisoning is:',opts:['Chlordiazepoxide','Alprazolam'],correct:'A'},
+  {type:'MCQ',q:'Benzodiazepines antagonist is:',opts:['Buspirone','Ondansetron','Fluoxetine','Medazolam','None of the above (Flumazenil)'],correct:'E'},
+  {type:'MCQ',q:'Drug of choice for acute anxiety is:',opts:['Alprazolam','Diazepam','Clobazepam','(a) and (b)'],correct:'D'},
+  {type:'MCQ',q:'Benzodiazepine antagonist is:',opts:['Flumazenil','Diazepam','Midazolam','Buspirone','Propranolol'],correct:'A'},
+  {type:'MCQ',q:'Severe anxiety lead to:',opts:['Tachycardia','Bradycardia','Decrease blood pressure','None of the above'],correct:'A'},
+  {type:'MCQ',q:'For major and minor forms of epilepsy can be used:',opts:['Clorazepam','Diazepam','Medazolam','None of the above'],correct:'A'},
+  {type:'MCQ',q:'The pharmacological action of Benzodiazepines depend on:',opts:['Route of administration','Plasma protein binding','Amount of dose','Metabolites production'],correct:'C'},
+  {type:'MCQ',q:'Alprazolam is:',opts:['Treat anxiety because more effective and safer than Barbiturates','Replaced Barbiturates to treat anxiety','Most widely used as anxiolytic drugs','All of the above'],correct:'D'},
+  {type:'MCQ',q:'Chlordiazepoxide is:',opts:['Given orally to control convulsion','Given intravenous for atropine poisoning','(a) and (b)'],correct:'C'},
+  {type:'MCQ',q:'Chlordiazepoxide is (symptoms):',opts:['Decrease opiate withdrawal symptoms','Used for epilepsy','Produce convulsion','All of the above'],correct:'A'},
+  {type:'MCQ',q:'Diazepam is given I.M. in tetanus because:',opts:['Control convulsion','Stimulate convulsion','Prophylaxis','(a) and (c)'],correct:'A'},
+  {type:'MCQ',q:'Anxiety associated with Benzodiazepines withdrawal treated by:',opts:['Barbiturates','Propranolol','Buspirone','Medazolam'],correct:'B'},
+  {type:'MCQ',q:'Benzodiazepines are:',opts:['Less used as anxiolytic than barbiturates','Good orally absorption','Less protein binding','Antipsychotic activity'],correct:'B'},
+  {type:'MCQ',q:'Flumazenil is used as:',opts:['Benzodiazepine antagonist','Benzodiazepine agonist','Treat Benzodiazepine over dose','(a) and (c)'],correct:'D'},
+  {type:'MCQ',q:'Benzodiazepines have replaced Barbiturates as:',opts:['Sedative','Tranquilizer','Hypnotics','Analgesics'],correct:'C'},
+  {type:'TF',q:'Diazepam is used for status epilepticus.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Severe anxiety is a common life experience.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Barbiturates have replaced Benzodiazepines as Hypnotics.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Clorazepam used for major and minor forms of epilepsy.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Pharmacological action of Benzodiazepines depend on dose.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Chlordiazepoxide used to reduce Barbiturates withdrawal symptoms.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Benzodiazepines increase chloride conductance by open chloride channel.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Benzodiazepines open chloride channel.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Benzodiazepines have antipsychotic activity.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Benzodiazepines used with sedative drugs.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Ondansetron does not have CNS Stimulant effect.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Barbiturates have replaced benzodiazepines as hypnotics.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Severe anxiety patient may complain from Tachycardia.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Alprazolam more effective than Barbiturates.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Benzodiazepine is drug choice for seizure disorders.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Opiate withdrawal symptoms treated by Barbiturates.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Clonazepam may be used to treat panic disorder.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Diazepam is used to decrease opiate withdrawal symptoms.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Mild anxiety does not require treatment.',opts:['True','False'],correct:'A'},
+],
+other_anxiolytics:[
+  {type:'MCQ',q:'Drug similar to Buspirone in its actions and advantages is:',opts:['Ondansetron','Propranolol','Morphine','None of the above'],correct:'A'},
+  {type:'MCQ',q:'Drug pharmacologically similar to Buspirone is:',opts:['Ondasetrone','Propranolol','Diazepam','None of the above'],correct:'A'},
+  {type:'MCQ',q:'Ondasterone is:',opts:['Opioid analgesic','Anti-anxiety','Local anesthetic','Anti-inflammatory'],correct:'B'},
+  {type:'MCQ',q:'Ondansetrone is:',opts:['HT2 antagonist-5','Similar to Buspirone','CNS-stimulant','(b) and (c)','None of the above'],correct:'E'},
+  {type:'MCQ',q:'Buspirone is:',opts:['Sedative','Highly addiction','Slow onset','All of the above'],correct:'C'},
+  {type:'MCQ',q:'Clobazepam is:',opts:['Used for status epilepticus','Used for epilepsy','Induce anaesthesia','(b) and (c)'],correct:'B'},
+  {type:'TF',q:'Buspirone is type of Benzodiazepines.',opts:['True','False'],correct:'B'},
+  {type:'TF',q:'Propranolol have anxiolytic properties due to peripheral and central activity.',opts:['True','False'],correct:'A'},
+  {type:'TF',q:'Buspirone is related to Benzodiazepines.',opts:['True','False'],correct:'B'},
+]
+};
+
+// ═══════════════════ STATE & LOGIC ═══════════════════
+let openedSections=new Set(), revealedCards=new Set(), currentFilter='all';
+
+function buildTOC(){
+  const g=document.getElementById('tocGrid');
+  SECTIONS.forEach(s=>{
+    const d=document.createElement('div');
+    d.className='toc-item';
+    d.innerHTML=`<div class="toc-dot"></div>${s.icon} ${s.title}`;
+    d.onclick=()=>{const el=document.getElementById('sec-'+s.id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});openSection(s.id);}};
+    g.appendChild(d);
+  });
+}
+
+function buildSections(){
+  const area=document.getElementById('contentArea');
+  SECTIONS.forEach(s=>{
+    const qs=QUESTIONS[s.id]||[];
+    const mcq=qs.filter(q=>q.type==='MCQ').length,tf=qs.filter(q=>q.type==='TF').length;
+    const block=document.createElement('div');
+    block.className='section-block';block.id='sec-'+s.id;
+    block.innerHTML=`
+      <div class="section-header" onclick="toggleSection('${s.id}')">
+        <div class="sec-icon">${s.icon}</div>
+        <div class="sec-title-wrap"><div class="sec-title">${s.title}</div><div class="sec-badge">${s.badge}</div></div>
+        <div class="sec-progress">${qs.length} Qs</div>
+        <span class="sec-chevron">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="content-panel">${s.content}</div>
+        <div class="qa-panel">
+          <div class="qa-header">
+            <span>📝 ${qs.length} Questions — ${mcq} MCQ · ${tf} T/F</span>
+            <button class="show-answers-btn" id="revbtn-${s.id}" onclick="toggleReveal('${s.id}')">Show Answers</button>
+          </div>
+          <ul id="qlist-${s.id}" style="list-style:none"></ul>
+        </div>
+      </div>`;
+    area.appendChild(block);
+    renderQuestions(s.id,qs);
+  });
+  let tot=0;SECTIONS.forEach(s=>tot+=(QUESTIONS[s.id]||[]).length);
+  document.getElementById('totalQ').textContent=tot;
+}
+
+function renderQuestions(secId,qList){
+  const container=document.getElementById('qlist-'+secId);
+  if(!container)return;container.innerHTML='';
+  const search=document.getElementById('searchInput').value.toLowerCase();
+  const letters=['A','B','C','D','E','F'];
+  qList.forEach((q,i)=>{
+    if(currentFilter==='mcq'&&q.type!=='MCQ')return;
+    if(currentFilter==='tf'&&q.type!=='TF')return;
+    if(currentFilter==='content')return;
+    if(search&&!q.q.toLowerCase().includes(search)&&!q.opts.some(o=>o.toLowerCase().includes(search)))return;
+    const cardId=`${secId}-q${i}`,revealed=revealedCards.has(cardId);
+    const li=document.createElement('li');
+    const card=document.createElement('div');
+    card.className=`q-card${revealed?' open':''}`;card.id='card-'+cardId;
+    let optsHtml='';
+    q.opts.forEach((opt,oi)=>{
+      const letter=letters[oi],isCorrect=letter===q.correct&&revealed;
+      optsHtml+=`<li class="${isCorrect?'correct-opt':''}"><span class="opt-letter">${letter}.</span> ${opt}</li>`;
+    });
+    card.innerHTML=`
+      <div class="q-head" onclick="toggleCard('${secId}','${i}')">
+        <span class="q-num">${i+1}.</span>
+        <span class="q-type-badge badge-${q.type.toLowerCase()}">${q.type}</span>
+        <span class="q-text">${q.q}</span>
+        <span class="q-toggle">▼</span>
+      </div>
+      <div class="q-body">
+        <ul class="q-options">${optsHtml}</ul>
+        ${revealed?`<div class="q-answer-line">✓ Answer: <strong>${q.correct} — ${q.opts[letters.indexOf(q.correct)]}</strong></div>`:`<div class="q-answer-line" style="color:var(--text-dim);font-size:12px">Click "Show Answers" above to reveal.</div>`}
+      </div>`;
+    li.appendChild(card);container.appendChild(li);
+  });
+}
+
+function toggleCard(secId,idx){const card=document.getElementById(`card-${secId}-q${idx}`);if(card)card.classList.toggle('open');}
+
+function toggleSection(id){
+  const block=document.getElementById('sec-'+id);if(!block)return;
+  if(!block.classList.contains('open')){
+    block.classList.add('open');openedSections.add(id);
+    document.getElementById('openedCount').textContent=openedSections.size;saveProgress();
+  } else {block.classList.remove('open');}
+  updateProgressBar();
+}
+
+function openSection(id){
+  const block=document.getElementById('sec-'+id);
+  if(block&&!block.classList.contains('open')){
+    block.classList.add('open');openedSections.add(id);
+    document.getElementById('openedCount').textContent=openedSections.size;updateProgressBar();saveProgress();
+  }
+}
+
+function toggleReveal(secId){
+  const btn=document.getElementById('revbtn-'+secId);
+  const qs=QUESTIONS[secId]||[];
+  const ids=qs.map((_,i)=>`${secId}-q${i}`);
+  const allRev=ids.every(id=>revealedCards.has(id));
+  if(allRev){ids.forEach(id=>revealedCards.delete(id));btn.classList.remove('revealed');btn.textContent='Show Answers';}
+  else{ids.forEach(id=>revealedCards.add(id));btn.classList.add('revealed');btn.textContent='Hide Answers';document.getElementById('revealedCount').textContent=revealedCards.size;}
+  renderQuestions(secId,qs);
+  qs.forEach((_,i)=>{const c=document.getElementById(`card-${secId}-q${i}`);if(c)c.classList.add('open');});
+  saveProgress();
+}
+
+function expandAll(){SECTIONS.forEach(s=>openSection(s.id));}
+function collapseAll(){SECTIONS.forEach(s=>{const b=document.getElementById('sec-'+s.id);if(b)b.classList.remove('open');});}
+function revealAllAnswers(){
+  SECTIONS.forEach(s=>{
+    const qs=QUESTIONS[s.id]||[];
+    qs.forEach((_,i)=>revealedCards.add(`${s.id}-q${i}`));
+    const btn=document.getElementById('revbtn-'+s.id);
+    if(btn){btn.classList.add('revealed');btn.textContent='Hide Answers';}
+    renderQuestions(s.id,qs);
+    qs.forEach((_,i)=>{const c=document.getElementById(`card-${s.id}-q${i}`);if(c)c.classList.add('open');});
+  });
+  document.getElementById('revealedCount').textContent=revealedCards.size;saveProgress();
+}
+function resetProgress(){
+  openedSections.clear();revealedCards.clear();
+  SECTIONS.forEach(s=>{
+    const b=document.getElementById('sec-'+s.id);if(b)b.classList.remove('open');
+    const btn=document.getElementById('revbtn-'+s.id);if(btn){btn.classList.remove('revealed');btn.textContent='Show Answers';}
+    renderQuestions(s.id,QUESTIONS[s.id]||[]);
+  });
+  document.getElementById('openedCount').textContent=0;document.getElementById('revealedCount').textContent=0;
+  updateProgressBar();localStorage.removeItem('opioidStudyProgress');
+}
+
+function updateProgressBar(){
+  const pct=Math.round((openedSections.size/SECTIONS.length)*100);
+  document.getElementById('progFill').style.width=pct+'%';document.getElementById('progLabel').textContent=pct+'%';
+}
+
+document.getElementById('searchInput').addEventListener('input',function(){
+  const val=this.value.toLowerCase();let any=false;
+  SECTIONS.forEach(s=>{
+    const block=document.getElementById('sec-'+s.id);
+    const qs=QUESTIONS[s.id]||[];
+    if(!val){block.classList.remove('hidden');renderQuestions(s.id,qs);any=true;return;}
+    const cm=s.title.toLowerCase().includes(val)||s.content.toLowerCase().includes(val);
+    const qm=qs.some(q=>q.q.toLowerCase().includes(val)||q.opts.some(o=>o.toLowerCase().includes(val)));
+    if(cm||qm){block.classList.remove('hidden');any=true;renderQuestions(s.id,qs);if(qm&&!block.classList.contains('open'))openSection(s.id);}
+    else{block.classList.add('hidden');}
+  });
+  document.getElementById('emptyState').classList.toggle('show',!any);
+});
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');currentFilter=this.dataset.filter;
+    SECTIONS.forEach(s=>renderQuestions(s.id,QUESTIONS[s.id]||[]));
+  });
+});
+
+function saveProgress(){try{localStorage.setItem('opioidStudyProgress',JSON.stringify({opened:[...openedSections],revealed:[...revealedCards]}));}catch(e){}}
+function loadProgress(){try{const d=JSON.parse(localStorage.getItem('opioidStudyProgress')||'{}');if(d.opened)d.opened.forEach(id=>openedSections.add(id));if(d.revealed)d.revealed.forEach(id=>revealedCards.add(id));}catch(e){}}
+
+// INIT
+loadProgress();buildTOC();buildSections();
+openedSections.forEach(id=>{const b=document.getElementById('sec-'+id);if(b)b.classList.add('open');});
+SECTIONS.forEach(s=>renderQuestions(s.id,QUESTIONS[s.id]||[]));
+document.getElementById('openedCount').textContent=openedSections.size;
+document.getElementById('revealedCount').textContent=revealedCards.size;
+updateProgressBar();
+</script>
+</body>
+</html>
